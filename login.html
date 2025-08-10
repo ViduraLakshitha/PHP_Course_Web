@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - course_web</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html" class="logo">course_web</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search courses...">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="mycourses.html">My Courses</a>
+      <a href="/web%20assignmen/profile.php">Profile</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="centered-container">
+    <div class="centered-card">
+      <h2 style="text-align:center;">Login to Your Account</h2>
+      <form action="php/login.php" method="post" style="display:flex;flex-direction:column;gap:1rem;">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <div class="error-msg"></div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <div class="error-msg"></div>
+        <input type="submit" value="Login" class="cta-btn">
+      </form>
+      <p style="text-align:center;">Don't have an account? <a href="register.html">Register here</a>.</p>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2024 course_web. All rights reserved.</p>
+  </footer>
+  <div id="login-error-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.3);z-index:1000;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:2rem 2.5rem;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.15);text-align:center;">
+      <h3 style="color:#d32f2f;">Login Failed</h3>
+      <p>Incorrect username or password.</p>
+      <button onclick="document.getElementById('login-error-modal').style.display='none'" class="cta-btn" style="margin-top:1rem;">Close</button>
+    </div>
+  </div>
+  <script>
+    // Show modal if error=1 in URL
+    if (window.location.search.includes('error=1')) {
+      document.getElementById('login-error-modal').style.display = 'flex';
+    }
+  </script>
+  <script src="js/validation.js"></script>
+</body>
+</html> 

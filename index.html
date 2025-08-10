@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>course_web</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html" class="logo">course_web</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search courses...">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="mycourses.html">My Courses</a>
+      <a href="/web%20assignmen/profile.php">Profile</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="hero">
+    <h1>Empower Your Future with Free Online Courses</h1>
+    <p>Join thousands of learners and gain new skills for your career, education, or personal growth. Start learning today!</p>
+    <a href="register.html" class="cta-btn">Get Started - Register Now</a>
+  </div>
+  <div class="container">
+    <h2 style="text-align:center;">Featured Courses</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="assets/young-beautiful-woman-works-office-speak-video-call-laptop.jpg" alt="Introduction to Computer Science" class="course-img" style="width:100%;height:140px;object-fit:cover;border-radius:8px 8px 0 0;">
+        <h3>Introduction to Computer Science</h3>
+        <p>Learn the basics of computer science and programming. No prior experience required.</p>
+        <a href="courses.html" class="enroll-btn">View Course</a>
+      </div>
+      <div class="card">
+        <img src="assets/20944355.jpg" alt="Calculus I" class="course-img" style="width:100%;height:140px;object-fit:cover;border-radius:8px 8px 0 0;">
+        <h3>Calculus I</h3>
+        <p>Master the fundamentals of calculus, including limits, derivatives, and integrals.</p>
+        <a href="courses.html" class="enroll-btn">View Course</a>
+      </div>
+      <div class="card">
+        <img src="assets/students-working-study-group.jpg" alt="English Literature" class="course-img" style="width:100%;height:140px;object-fit:cover;border-radius:8px 8px 0 0;">
+        <h3>English Literature</h3>
+        <p>Explore classic and modern works of English literature and improve your analytical skills.</p>
+        <a href="courses.html" class="enroll-btn">View Course</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2024 course_web. All rights reserved.</p>
+  </footer>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('php/check_user.php')
+    .then(response => response.json())
+    .then(data => {
+      if (data.loggedIn) {
+        document.querySelectorAll('.nav-links a[href="login.html"], .nav-links a[href="register.html"]').forEach(el => el.style.display = 'none');
+      }
+    });
+});
+</script>
+</body>
+</html> 

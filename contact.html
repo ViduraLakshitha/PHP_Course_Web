@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - course_web</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html" class="logo">course_web</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search courses...">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="mycourses.html">My Courses</a>
+      <a href="/web%20assignmen/profile.php">Profile</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="container">
+    <h2 style="text-align:center;">Contact Us</h2>
+    <form action="php/contact.php" method="post" style="max-width:400px;margin:2rem auto 0 auto;display:flex;flex-direction:column;gap:1rem;">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+      <input type="submit" value="Send" class="cta-btn">
+    </form>
+  </div>
+  <footer>
+    <p>&copy; 2024 course_web. All rights reserved.</p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('php/check_user.php')
+        .then(response => response.json())
+        .then(data => {
+          if (data.loggedIn) {
+            document.querySelectorAll('.nav-links a[href="login.html"], .nav-links a[href="register.html"]').forEach(el => el.style.display = 'none');
+          }
+        });
+    });
+  </script>
+</body>
+</html> 

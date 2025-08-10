@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Student Course Web Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var loggedIn = document.cookie.includes('PHPSESSID');
+      document.querySelectorAll('.nav-logged-in').forEach(el => el.style.display = loggedIn ? 'inline' : 'none');
+      document.querySelectorAll('.nav-logged-out').forEach(el => el.style.display = loggedIn ? 'none' : 'inline');
+      fetch('php/check_user.php')
+        .then(response => response.json())
+        .then(data => {
+          if (data.loggedIn) {
+            document.querySelectorAll('.nav-links a[href="login.html"], .nav-links a[href="register.html"]').forEach(el => el.style.display = 'none');
+          }
+        });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Student Course Web Portal</h1>
+  </header>
+  <nav>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="mycourses.html">My Courses</a>
+      <a href="/web%20assignmen/profile.php">Profile</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+  <div class="container">
+    <h2>Dashboard</h2>
+    <p>Welcome to your dashboard! Here you can quickly access your courses, profile, and more.</p>
+    <ul>
+      <li><a href="mycourses.html">View My Courses</a></li>
+      <li><a href="courses.html">Browse All Courses</a></li>
+      <li><a href="profile.html">Edit Profile</a></li>
+    </ul>
+  </div>
+  <footer>
+    <p>&copy; 2024 course_web. All rights reserved.</p>
+  </footer>
+</body>
+</html> 
